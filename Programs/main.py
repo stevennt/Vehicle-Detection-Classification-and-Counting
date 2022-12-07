@@ -3,9 +3,14 @@ import cv2
 import numpy as np
 import time
 import vehicles
+import sys
 
 #---------------------------------------------------VARIABLE DECLARATIONS-------------------------------------------------------------------------------
-cap=cv2.VideoCapture("./Videos/video.mp4") 
+#cap=cv2.VideoCapture("./Videos/video.mp4") 
+print(sys.argv[1])
+#cap=cv2.VideoCapture("../Videos/video.mp4")
+cap=cv2.VideoCapture("../Videos/"+ sys.argv[1])
+
 fgbg=cv2.createBackgroundSubtractorMOG2(detectShadows=False,history=200,varThreshold = 90)
 kernalOp = np.ones((3,3),np.uint8)
 kernalOp2 = np.ones((5,5),np.uint8)
